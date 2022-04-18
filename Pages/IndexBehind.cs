@@ -8,7 +8,7 @@ namespace ControleCompras.Pages
 	public class IndexBehind : ComponentBase
 	{
 		[Inject]
-		private IControleComprasDb _controleComprasDb { get; set; }
+		private ISupermercadoRepository _supermercadoRepository { get; set; }
 
 		protected IEnumerable<Supermercados> ListaSupermercados;
 
@@ -23,16 +23,11 @@ namespace ControleCompras.Pages
 			Mensagem = String.Empty;
 
 			await Buscar();
-
-			//foreach (var item in ListaSupermercados)
-			//{
-			//	await _controleComprasDb.Deletar(item.Id);
-			//}
 		}
 
 		protected async Task Buscar()
 		{
-			ListaSupermercados = await _controleComprasDb.Buscar();
+			ListaSupermercados = await _supermercadoRepository.Buscar();
 		}
 		protected async Task Salvar(EditContext e)
 		{
@@ -53,19 +48,19 @@ namespace ControleCompras.Pages
 
 		private async Task Inserir(Supermercados supermercados)
 		{
-			await _controleComprasDb.Inserir(supermercados);
+			await _supermercadoRepository.Inserir(supermercados);
 			Mensagem = "Inserido com Sucesso";
 		}
 
 		private async Task Editar(Supermercados supermercados)
 		{
-			await _controleComprasDb.Editar(supermercados);
+			await _supermercadoRepository.Editar(supermercados);
 			Mensagem = "Editado com Sucesso";
 		}
 
 		protected async Task Excluir(string id)
 		{
-			await _controleComprasDb.Deletar(id);
+			await _supermercadoRepository.Deletar(id);
 			await Buscar();
 			Mensagem = "Excluido com Sucesso";
 		}

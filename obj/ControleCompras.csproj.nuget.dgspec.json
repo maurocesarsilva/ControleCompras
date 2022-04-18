@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mauro.silva\\Desktop\\controleCompras\\ControleCompras\\ControleCompras\\ControleCompras.csproj": {}
+    "C:\\NamesPacePessoal\\controleCompras\\ControleCompras\\ControleCompras.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mauro.silva\\Desktop\\controleCompras\\ControleCompras\\ControleCompras\\ControleCompras.csproj": {
+    "C:\\NamesPacePessoal\\controleCompras\\ControleCompras\\ControleCompras.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mauro.silva\\Desktop\\controleCompras\\ControleCompras\\ControleCompras\\ControleCompras.csproj",
+        "projectUniqueName": "C:\\NamesPacePessoal\\controleCompras\\ControleCompras\\ControleCompras.csproj",
         "projectName": "ControleCompras",
-        "projectPath": "C:\\Users\\mauro.silva\\Desktop\\controleCompras\\ControleCompras\\ControleCompras\\ControleCompras.csproj",
+        "projectPath": "C:\\NamesPacePessoal\\controleCompras\\ControleCompras\\ControleCompras.csproj",
         "packagesPath": "C:\\Users\\mauro.silva\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mauro.silva\\Desktop\\controleCompras\\ControleCompras\\ControleCompras\\obj\\",
+        "outputPath": "C:\\NamesPacePessoal\\controleCompras\\ControleCompras\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

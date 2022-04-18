@@ -1,9 +1,12 @@
-﻿using MongoDB.Bson;
+﻿using ControleCompras.Configuration;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System.ComponentModel.DataAnnotations;
 
 namespace ControleCompras.Models
 {
+	[DataBase(dataBase: "ControleComprasDb")]
+	[Collection(collection: "Supermercados")]
 	public class Supermercados
 	{
 		[BsonId]

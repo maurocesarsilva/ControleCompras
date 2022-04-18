@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WsI9owMxfIHjluiNGTvDbh1i2jIh2u0Hio7px9CZtnBb2vBBC6iHWuL00zbQdZG5Kn2hRaTCdF/R/HIXrDBMaw==",
+  "dgSpecHash": "/vlp6DFeTY+2c5cHaYLUfitOD2+oLLiFAjnbcXeZWfV8sIzCGlI0CZ1+cm79Uy8Xim7wbMjp3V1LEeDzebZzvg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mauro.silva\\Desktop\\controleCompras\\ControleCompras\\ControleCompras\\ControleCompras.csproj",
+  "projectFilePath": "C:\\NamesPacePessoal\\controleCompras\\ControleCompras\\ControleCompras.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mauro.silva\\.nuget\\packages\\dnsclient\\1.4.0\\dnsclient.1.4.0.nupkg.sha512",
     "C:\\Users\\mauro.silva\\.nuget\\packages\\mongocsharpdriver\\2.14.1\\mongocsharpdriver.2.14.1.nupkg.sha512",

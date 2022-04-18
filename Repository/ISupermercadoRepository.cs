@@ -2,7 +2,7 @@
 
 namespace ControleCompras.Repository
 {
-	public interface IControleComprasDb
+	public interface ISupermercadoRepository
 	{
 		Task<IEnumerable<Supermercados>> Buscar();
 

@@ -4,9 +4,9 @@ using MongoDB.Driver;
 
 namespace ControleCompras.Repository
 {
-	public class ControleComprasDb : MongoDbConfig<Supermercados>, IControleComprasDb
+	public class SupermercadoRepository : MongoDbConfig<Supermercados>, ISupermercadoRepository
 	{
-		public ControleComprasDb(IConfiguration configuration) : base(configuration) { }
+		public SupermercadoRepository(IConfiguration configuration) : base(configuration) { }
 
 		public async Task<IEnumerable<Supermercados>> Buscar()
 		{

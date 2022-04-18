@@ -6,7 +6,7 @@ namespace ControleCompras.Configuration
 	{
 		public static void DependencyInjection(this IServiceCollection services)
 		{
-			services.AddTransient<IControleComprasDb, ControleComprasDb>();
+			services.AddTransient<ISupermercadoRepository, SupermercadoRepository>();
 		}
 	}
 }
