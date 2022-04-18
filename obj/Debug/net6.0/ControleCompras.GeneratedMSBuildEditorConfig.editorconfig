@@ -23,6 +23,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/NamesPacePessoal/controleCompras/ControleCompras/Pages/Produtos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHV0b3MucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/NamesPacePessoal/controleCompras/ControleCompras/Shared/Componentes/Alert.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudGVzXEFsZXJ0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/NamesPacePessoal/controleCompras/ControleCompras/Shared/Componentes/Modal.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudGVzXE1vZGFsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/NamesPacePessoal/controleCompras/ControleCompras/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -34,10 +46,6 @@ build_metadata.AdditionalFiles.CssScope = b-5rtrw8rga7
 [C:/NamesPacePessoal/controleCompras/ControleCompras/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-cu5xy7mirz
-
-[C:/NamesPacePessoal/controleCompras/ControleCompras/Pages/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
 
 [C:/NamesPacePessoal/controleCompras/ControleCompras/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s

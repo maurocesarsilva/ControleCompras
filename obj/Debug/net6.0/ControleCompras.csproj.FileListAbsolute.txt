@@ -67,7 +67,6 @@ C:\NamesPacePessoal\controleCompras\ControleCompras\bin\Debug\net6.0\runtimes\wi
 C:\NamesPacePessoal\controleCompras\ControleCompras\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
 C:\NamesPacePessoal\controleCompras\ControleCompras\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
 C:\NamesPacePessoal\controleCompras\ControleCompras\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll
-C:\NamesPacePessoal\controleCompras\ControleCompras\obj\Debug\net6.0\ControleCompras.csproj.AssemblyReference.cache
 C:\NamesPacePessoal\controleCompras\ControleCompras\obj\Debug\net6.0\ControleCompras.GeneratedMSBuildEditorConfig.editorconfig
 C:\NamesPacePessoal\controleCompras\ControleCompras\obj\Debug\net6.0\ControleCompras.AssemblyInfoInputs.cache
 C:\NamesPacePessoal\controleCompras\ControleCompras\obj\Debug\net6.0\ControleCompras.AssemblyInfo.cs
@@ -86,3 +85,6 @@ C:\NamesPacePessoal\controleCompras\ControleCompras\obj\Debug\net6.0\ControleCom
 C:\NamesPacePessoal\controleCompras\ControleCompras\obj\Debug\net6.0\ref\ControleCompras.dll
 C:\NamesPacePessoal\controleCompras\ControleCompras\obj\Debug\net6.0\ControleCompras.pdb
 C:\NamesPacePessoal\controleCompras\ControleCompras\obj\Debug\net6.0\ControleCompras.genruntimeconfig.cache
+C:\NamesPacePessoal\controleCompras\ControleCompras\obj\Debug\net6.0\ControleCompras.Util.Messages.resources
+C:\NamesPacePessoal\controleCompras\ControleCompras\obj\Debug\net6.0\ControleCompras.csproj.GenerateResource.cache
+C:\NamesPacePessoal\controleCompras\ControleCompras\obj\Debug\net6.0\ControleCompras.csproj.AssemblyReference.cache

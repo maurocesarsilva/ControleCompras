@@ -1,5 +1,5 @@
-﻿@page "/"
-@inherits IndexBehind
+﻿@page "/produtos"
+@inherits ProdutosBehind
 
 <PageTitle>Index</PageTitle>
 
@@ -11,16 +11,16 @@
 	</Header>
 	<Body>
 		<div class="row">
-			<EditForm Model="@Supermercados" OnValidSubmit="Salvar">
+			<EditForm Model="@Produtos" OnValidSubmit="Salvar">
 				<DataAnnotationsValidator />
 				<div>
 					<label class="form-label">Nome</label>
 					<div class="input-group">
-						<InputText class="form-control" @bind-Value="Supermercados.Nome" />
+						<InputText class="form-control" @bind-Value="Produtos.Nome" />
 						<button type="submit" class="btn btn-primary" @onclick="() => Modal.Close()">Salvar</button>
 						<button type="button" class="btn btn-danger" @onclick="() => Modal.Close()">Cancelar</button>
 					</div>
-					<ValidationMessage For="@(() => Supermercados.Nome)" />
+					<ValidationMessage For="@(() => Produtos.Nome)" />
 				</div>
 			</EditForm>
 		</div>
@@ -44,7 +44,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			@foreach (var item in ListaSupermercados)
+			@foreach (var item in ListaProdutos)
 			{
 				<tr>
 					<td>@item.Nome</td>

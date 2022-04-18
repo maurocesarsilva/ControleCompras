@@ -4,7 +4,7 @@ using MongoDB.Driver;
 
 namespace ControleCompras.Repository.Config
 {
-	public abstract class MongoDbConfig<T> where T : class
+	public abstract class MongoDbConfig<T> : IMongoDbConfig<T> where T : EntityBase
 	{
 		private readonly IConfiguration _configuration;
 		public IMongoCollection<T> MongoCollection { get; set; }
@@ -24,13 +24,35 @@ namespace ControleCompras.Repository.Config
 		private (string, string) GetDataConnection()
 		{
 			var type = typeof(T);
-			var dataBaseAttribute = (DataBaseAttribute)Attribute.GetCustomAttribute(type, typeof(DataBaseAttribute));
 			var collectionAttribute = (CollectionAttribute)Attribute.GetCustomAttribute(type, typeof(CollectionAttribute));
 
-			if (dataBaseAttribute is null || collectionAttribute is null) { throw new Exception("DataBase e Collection não informados no objeto"); }
+			if (collectionAttribute is null) { throw new Exception("DataBase e Collection não informados no objeto"); }
 
+			return (collectionAttribute.DataBase, collectionAttribute.Collection);
+		}
 
-			return (dataBaseAttribute.DataBase, collectionAttribute.Collection);
+		public async Task<IEnumerable<T>> Buscar()
+		{
+			return await MongoCollection.AsQueryable().ToListAsync();
+		}
+
+		public async Task<T> Buscar(string id)
+		{
+			return await (await MongoCollection.FindAsync(f => f.Id == id)).FirstOrDefaultAsync();
+		}
+
+		public async Task Inserir(T obj)
+		{
+			await MongoCollection.InsertOneAsync(obj);
+		}
+		public async Task Editar(T obj)
+		{
+			await MongoCollection.ReplaceOneAsync(x => x.Id == obj.Id, obj);
+		}
+
+		public async Task Deletar(string id)
+		{
+			await MongoCollection.DeleteOneAsync(x => x.Id == id);
 		}
 	}
 }

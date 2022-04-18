@@ -1,5 +1,4 @@
-﻿using ControleCompras.Models;
-using ControleCompras.Repository;
+﻿using ControleCompras.Repository;
 using ControleCompras.Shared.Componentes;
 using ControleCompras.Util;
 using Microsoft.AspNetCore.Components;
@@ -7,14 +6,14 @@ using Microsoft.AspNetCore.Components.Forms;
 
 namespace ControleCompras.Pages
 {
-	public class IndexBehind : ComponentBase
+	public class ProdutosBehind : ComponentBase
 	{
 		[Inject]
-		private ISupermercadoRepository _supermercadoRepository { get; set; }
+		private IProdutosRepository _produtoRepository { get; set; }
 
-		protected IEnumerable<Supermercados> ListaSupermercados;
+		protected IEnumerable<Models.Produtos> ListaProdutos;
 
-		protected Supermercados Supermercados;
+		protected Models.Produtos Produtos;
 
 		protected string Title { get; set; }
 		protected Alert Alert { get; set; }
@@ -22,32 +21,32 @@ namespace ControleCompras.Pages
 
 		protected override async Task OnInitializedAsync()
 		{
-			ListaSupermercados = new List<Supermercados>();
-			Supermercados = new();
+			ListaProdutos = new List<Models.Produtos>();
+			Produtos = new();
 			if (Alert is not null) Alert.CloseMessage();
 			await Buscar();
 		}
 
 		protected async Task Buscar()
 		{
-			ListaSupermercados = await _supermercadoRepository.Buscar();
+			ListaProdutos = await _produtoRepository.Buscar();
 		}
 		protected async Task Salvar(EditContext e)
 		{
 			try
 			{
-				var supermercados = e.Model as Supermercados;
+				var produtos = e.Model as Models.Produtos;
 
-				if (string.IsNullOrEmpty(supermercados.Id))
+				if (string.IsNullOrEmpty(produtos.Id))
 				{
-					await Inserir(supermercados);
+					await Inserir(produtos);
 				}
 				else
 				{
-					await Editar(supermercados);
+					await Editar(produtos);
 				}
 
-				Supermercados = new();
+				Produtos = new();
 				await Buscar();
 			}
 			catch (Exception ex)
@@ -56,15 +55,15 @@ namespace ControleCompras.Pages
 			}
 		}
 
-		private async Task Inserir(Supermercados supermercados)
+		private async Task Inserir(Models.Produtos produtos)
 		{
-			await _supermercadoRepository.Inserir(supermercados);
+			await _produtoRepository.Inserir(produtos);
 			Alert.ShowSuccessMessage(Messages.Insert);
 		}
 
-		private async Task Editar(Supermercados supermercados)
+		private async Task Editar(Models.Produtos produtos)
 		{
-			await _supermercadoRepository.Editar(supermercados);
+			await _produtoRepository.Editar(produtos);
 			Alert.ShowSuccessMessage(Messages.Update);
 		}
 
@@ -72,7 +71,7 @@ namespace ControleCompras.Pages
 		{
 			try
 			{
-				await _supermercadoRepository.Deletar(id);
+				await _produtoRepository.Deletar(id);
 				await Buscar();
 				Alert.ShowSuccessMessage(Messages.Delete);
 			}
@@ -86,8 +85,8 @@ namespace ControleCompras.Pages
 		{
 			try
 			{
-				Supermercados = new();
-				Title = "Cadastrar Novo Supermercado";
+				Produtos = new();
+				Title = "Cadastrar Novo Produto";
 				Modal.Open();
 			}
 			catch (Exception ex)
@@ -96,10 +95,10 @@ namespace ControleCompras.Pages
 			}
 		}
 
-		protected void AtualizarObjetoParaEdicao(Supermercados supermercados)
+		protected void AtualizarObjetoParaEdicao(Models.Produtos produtos)
 		{
-			Supermercados = supermercados;
-			Title = "Editar Supermercado";
+			Produtos = produtos;
+			Title = "Editar Produto";
 			Modal.Open();
 		}
 	}

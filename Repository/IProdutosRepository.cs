@@ -3,7 +3,7 @@ using ControleCompras.Repository.Config;
 
 namespace ControleCompras.Repository
 {
-	public interface ISupermercadoRepository : IMongoDbConfig<Supermercados>
+	public interface IProdutosRepository : IMongoDbConfig<Produtos>
 	{
 	}
 }
