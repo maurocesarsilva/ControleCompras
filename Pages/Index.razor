@@ -1,0 +1,55 @@
+﻿@page "/"
+@inherits IndexBehind
+
+<PageTitle>Index</PageTitle>
+
+<div class="row">
+	@if (string.IsNullOrEmpty(Mensagem) is false)
+	{
+		<div class="alert alert-primary" role="alert">
+			@Mensagem
+		</div>
+	}
+</div>
+
+<div class="row">
+	<EditForm Model="@Supermercados" OnValidSubmit="Salvar">
+		<DataAnnotationsValidator />
+		<div>
+			<label class="form-label">Nome</label>
+			<div class="input-group">
+				<InputText class="form-control" @bind-Value="Supermercados.Nome" />
+				<button type="submit" class="btn btn-primary">Salvar</button>
+			</div>
+			<ValidationMessage For="@(() => Supermercados.Nome)" />
+		</div>
+
+	</EditForm>
+</div>
+
+<br />
+<br />
+<br />
+
+<div class="row">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">Nome</th>
+				<th scope="col">Ações</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in ListaSupermercados)
+			{
+				<tr>
+					<td>@item.Nome</td>
+					<td>
+						<button class="btn alert-danger" @onclick="async () => await Excluir(item.Id)">Excluir</button> 
+						<button class="btn alert-success" @onclick="() => AtualizarObjetoParaEdicao(item)">Editar</button>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
