@@ -3,7 +3,8 @@ using ControleCompras.Repository.Config;
 
 namespace ControleCompras.Repository
 {
-	public interface IProdutosRepository : IMongoDbConfig<Produtos>
+	public interface INotaRepository : IMongoDbConfig<Nota>
 	{
+		Task<Nota> GetByDescription(string description);
 	}
 }

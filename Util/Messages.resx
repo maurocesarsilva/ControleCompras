@@ -120,10 +120,31 @@
   <data name="Delete" xml:space="preserve">
     <value>Excluído com successo!</value>
   </data>
+  <data name="ExisteRegister" xml:space="preserve">
+    <value>{0} já cadastrado!</value>
+  </data>
   <data name="Insert" xml:space="preserve">
     <value>Inserido com sucesso!</value>
   </data>
+  <data name="NotInclude" xml:space="preserve">
+    <value>Nenhum registro incluido</value>
+  </data>
+  <data name="NumMaxChar" xml:space="preserve">
+    <value>Campo excedeu o número maximo de caracteres </value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>{0} Obrigatório</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Salvo com sucesso!</value>
+  </data>
+  <data name="SaveErro" xml:space="preserve">
+    <value>Erro ao salvar registro</value>
+  </data>
   <data name="Update" xml:space="preserve">
     <value>Alterado com sucesso!</value>
+  </data>
+  <data name="ValueInvalid" xml:space="preserve">
+    <value>Valor informado no campo {0} inválido</value>
   </data>
 </root>

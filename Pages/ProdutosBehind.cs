@@ -1,4 +1,5 @@
 ﻿using ControleCompras.Repository;
+using ControleCompras.Services;
 using ControleCompras.Shared.Componentes;
 using ControleCompras.Util;
 using Microsoft.AspNetCore.Components;
@@ -9,70 +10,61 @@ namespace ControleCompras.Pages
 	public class ProdutosBehind : ComponentBase
 	{
 		[Inject]
-		private IProdutosRepository _produtoRepository { get; set; }
+		private IProductService _productService { get; set; }
 
-		protected IEnumerable<Models.Produtos> ListaProdutos;
+		protected IEnumerable<Models.Product> ListProducts;
 
-		protected Models.Produtos Produtos;
+		protected Models.Product Product;
 
 		protected string Title { get; set; }
 		protected Alert Alert { get; set; }
 		protected Modal Modal { get; set; }
+		protected Modal ModalDelete { get; set; }
 
 		protected override async Task OnInitializedAsync()
 		{
-			ListaProdutos = new List<Models.Produtos>();
-			Produtos = new();
+			ListProducts = new List<Models.Product>();
+			await Reload();
 			if (Alert is not null) Alert.CloseMessage();
-			await Buscar();
 		}
 
-		protected async Task Buscar()
+		protected async Task Get()
 		{
-			ListaProdutos = await _produtoRepository.Buscar();
+			ListProducts = await _productService.Get();
 		}
-		protected async Task Salvar(EditContext e)
+		protected async Task Save(EditContext e)
 		{
 			try
 			{
-				var produtos = e.Model as Models.Produtos;
+				var product = e.Model as Models.Product;
 
-				if (string.IsNullOrEmpty(produtos.Id))
-				{
-					await Inserir(produtos);
-				}
-				else
-				{
-					await Editar(produtos);
-				}
-
-				Produtos = new();
-				await Buscar();
+				await _productService.Save(product);
+				Alert.ShowSuccessMessage(Messages.Save);
+				await Reload();
 			}
 			catch (Exception ex)
 			{
 				Alert.ShowErrorMessage(ex.Message);
 			}
+			finally
+			{
+				Modal.Close();
+			}
 		}
 
-		private async Task Inserir(Models.Produtos produtos)
+		protected void ConfirmDelete(Models.Product product)
 		{
-			await _produtoRepository.Inserir(produtos);
-			Alert.ShowSuccessMessage(Messages.Insert);
+			Product = product;
+			ModalDelete.Open();
 		}
 
-		private async Task Editar(Models.Produtos produtos)
-		{
-			await _produtoRepository.Editar(produtos);
-			Alert.ShowSuccessMessage(Messages.Update);
-		}
-
-		protected async Task Excluir(string id)
+		protected async Task Deletar(string id)
 		{
 			try
 			{
-				await _produtoRepository.Deletar(id);
-				await Buscar();
+				await _productService.Delete(id);
+				await Reload();
+				ModalDelete.Close();
 				Alert.ShowSuccessMessage(Messages.Delete);
 			}
 			catch (Exception ex)
@@ -81,11 +73,11 @@ namespace ControleCompras.Pages
 			}
 		}
 
-		protected void PrepararModalParaSalvar()
+		protected void PrepareModalToSave()
 		{
 			try
 			{
-				Produtos = new();
+				Product = new();
 				Title = "Cadastrar Novo Produto";
 				Modal.Open();
 			}
@@ -95,11 +87,16 @@ namespace ControleCompras.Pages
 			}
 		}
 
-		protected void AtualizarObjetoParaEdicao(Models.Produtos produtos)
+		protected void UpdateObjectToEdit(Models.Product produtos)
 		{
-			Produtos = produtos;
+			Product = produtos;
 			Title = "Editar Produto";
 			Modal.Open();
+		}
+		private async Task Reload()
+		{
+			Product = new();
+			await Get();
 		}
 	}
 }

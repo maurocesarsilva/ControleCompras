@@ -5,11 +5,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ControleCompras.Models
 {
-	[Collection(collection: "Supermercados", dataBase: "ControleComprasDb")]
-	public class Supermercados : EntityBase
+	[Collection(collection: "Supermarket", dataBase: "PurchaseControlDb")]
+	public class Supermarket : EntityBase
 	{
 		[Required(ErrorMessage ="Nome Obrigatório")]
-		[MaxLength(20, ErrorMessage ="Campo { } deve possuir no maximo 20 caracteres")]
-		public string Nome { get; set; }
+		[MaxLength(20, ErrorMessage ="Campo {0} deve possuir no maximo 20 caracteres")]
+		public string Name { get; set; }
 	}
 }

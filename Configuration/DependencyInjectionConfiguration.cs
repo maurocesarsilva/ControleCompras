@@ -1,4 +1,5 @@
 ﻿using ControleCompras.Repository;
+using ControleCompras.Services;
 
 namespace ControleCompras.Configuration
 {
@@ -7,8 +8,12 @@ namespace ControleCompras.Configuration
 		public static void DependencyInjection(this IServiceCollection services)
 		{
 			services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
-			services.AddTransient<ISupermercadoRepository, SupermercadoRepository>();
-			services.AddTransient<IProdutosRepository, ProdutosRepository>();
+			services.AddTransient<ISupermarketRepository, SupermermarketRepository>();
+			services.AddTransient<IProductRepository, ProductRepository>();
+			services.AddTransient<ISupermarketService, SupermarketService>();
+			services.AddTransient<IProductService, ProductService>();
+			services.AddTransient<INotaRepository, NotaRepository>();
+			services.AddTransient<INotaService, NotaService>();
 		}
 	}
 }

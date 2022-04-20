@@ -11,49 +11,63 @@
 	</Header>
 	<Body>
 		<div class="row">
-			<EditForm Model="@Produtos" OnValidSubmit="Salvar">
+			<EditForm Model="@Product" OnValidSubmit="Save">
 				<DataAnnotationsValidator />
 				<div>
 					<label class="form-label">Nome</label>
 					<div class="input-group">
-						<InputText class="form-control" @bind-Value="Produtos.Nome" />
-						<button type="submit" class="btn btn-primary" @onclick="() => Modal.Close()">Salvar</button>
+						<InputText class="form-control" @bind-Value="Product.Name" />
+						<button type="submit" class="btn btn-primary">Salvar</button>
 						<button type="button" class="btn btn-danger" @onclick="() => Modal.Close()">Cancelar</button>
 					</div>
-					<ValidationMessage For="@(() => Produtos.Nome)" />
+					<ValidationMessage For="@(() => Product.Name)" />
 				</div>
 			</EditForm>
 		</div>
 	</Body>
 </Modal>
 
-<div class="row">
-	<button type="button" class="btn btn-primary" data-dismiss="modal" @onclick="PrepararModalParaSalvar">Novo Cadastro</button>
-</div>
+<Modal @ref="ModalDelete">
+	<Header>
+		<h5>Tem certeza que deseja excluir: @Product.Name</h5>
+	</Header>
+	<Footer>
+		<button class="btn alert-danger" @onclick=" () => ModalDelete.Close()">Cancelar</button>
+		<button class="btn alert-success" @onclick="async () => await Deletar(Product.Id)">Confirmar</button>
+	</Footer>
+</Modal>
 
-<br/>
-<br/>
-<br/>
+<div class="card width100">
+	<div class="card-body">
+		<div class="row">
+			<button type="button" class="btn btn-primary" data-dismiss="modal" @onclick="PrepareModalToSave">Novo Cadastro</button>
+		</div>
 
-<div class="row">
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th scope="col">Nome</th>
-				<th scope="col">Ações</th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach (var item in ListaProdutos)
-			{
-				<tr>
-					<td>@item.Nome</td>
-					<td>
-						<button class="btn alert-danger" @onclick="async () => await Excluir(item.Id)">Excluir</button>
-						<button class="btn alert-success" @onclick="() => AtualizarObjetoParaEdicao(item)">Editar</button>
-					</td>
-				</tr>
-			}
-		</tbody>
-	</table>
+		<div class="row margin-top2">
+			<div class="card width100">
+				<div class="card-body">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th scope="col">Nome</th>
+								<th scope="col">Ações</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var item in ListProducts)
+							{
+								<tr>
+									<td>@item.Name</td>
+									<td>
+										<button class="btn alert-danger" @onclick=" () => ConfirmDelete(item)">Excluir</button>
+										<button class="btn alert-success" @onclick="() => UpdateObjectToEdit(item)">Editar</button>
+									</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

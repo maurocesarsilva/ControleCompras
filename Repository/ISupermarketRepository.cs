@@ -3,7 +3,8 @@ using ControleCompras.Repository.Config;
 
 namespace ControleCompras.Repository
 {
-	public interface ISupermercadoRepository : IMongoDbConfig<Supermercados>
+	public interface ISupermarketRepository : IMongoDbConfig<Supermarket>
 	{
+		Task<Supermarket> GetByName(string nome);
 	}
 }

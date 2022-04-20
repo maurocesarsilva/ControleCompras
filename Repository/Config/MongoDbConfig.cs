@@ -31,26 +31,26 @@ namespace ControleCompras.Repository.Config
 			return (collectionAttribute.DataBase, collectionAttribute.Collection);
 		}
 
-		public async Task<IEnumerable<T>> Buscar()
+		public async Task<IEnumerable<T>> Get()
 		{
-			return await MongoCollection.AsQueryable().ToListAsync();
+			return (await MongoCollection.AsQueryable().ToListAsync());
 		}
 
-		public async Task<T> Buscar(string id)
+		public async Task<T> Get(string id)
 		{
 			return await (await MongoCollection.FindAsync(f => f.Id == id)).FirstOrDefaultAsync();
 		}
 
-		public async Task Inserir(T obj)
+		public async Task Insert(T obj)
 		{
 			await MongoCollection.InsertOneAsync(obj);
 		}
-		public async Task Editar(T obj)
+		public async Task Update(T obj)
 		{
 			await MongoCollection.ReplaceOneAsync(x => x.Id == obj.Id, obj);
 		}
 
-		public async Task Deletar(string id)
+		public async Task Delete(string id)
 		{
 			await MongoCollection.DeleteOneAsync(x => x.Id == id);
 		}

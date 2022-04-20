@@ -4,14 +4,14 @@ namespace ControleCompras.Repository.Config
 {
 	public interface IMongoDbConfig<T> where T : EntityBase
 	{
-		Task<IEnumerable<T>> Buscar();
+		Task<IEnumerable<T>> Get();
 
-		Task<T> Buscar(string id);
+		Task<T> Get(string id);
 
-		Task Inserir(T obj);
+		Task Insert(T obj);
 
-		Task Editar(T obj);
+		Task Update(T obj);
 
-		Task Deletar(string id);
+		Task Delete(string id);
 	}
 }

@@ -70,6 +70,15 @@ namespace ControleCompras.Util {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a {0} já cadastrado!.
+        /// </summary>
+        public static string ExisteRegister {
+            get {
+                return ResourceManager.GetString("ExisteRegister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Inserido com sucesso!.
         /// </summary>
         public static string Insert {
@@ -79,11 +88,65 @@ namespace ControleCompras.Util {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Nenhum registro incluido.
+        /// </summary>
+        public static string NotInclude {
+            get {
+                return ResourceManager.GetString("NotInclude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Campo excedeu o número maximo de caracteres .
+        /// </summary>
+        public static string NumMaxChar {
+            get {
+                return ResourceManager.GetString("NumMaxChar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a {0} Obrigatório.
+        /// </summary>
+        public static string Required {
+            get {
+                return ResourceManager.GetString("Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Salvo com sucesso!.
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Erro ao salvar registro.
+        /// </summary>
+        public static string SaveErro {
+            get {
+                return ResourceManager.GetString("SaveErro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Alterado com sucesso!.
         /// </summary>
         public static string Update {
             get {
                 return ResourceManager.GetString("Update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Valor informado no campo {0} inválido.
+        /// </summary>
+        public static string ValueInvalid {
+            get {
+                return ResourceManager.GetString("ValueInvalid", resourceCulture);
             }
         }
     }

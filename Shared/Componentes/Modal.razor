@@ -15,10 +15,10 @@
 				</div>
 			}
 
-			@if (Rodape is not null)
+			@if (Footer is not null)
 			{
 				<div class="modal-footer">
-					@Rodape
+					@Footer
 				</div>
 			}
 
@@ -41,7 +41,7 @@
 	public RenderFragment? Body { get; set; }
 
 	[Parameter]
-	public RenderFragment? Rodape { get; set; }
+	public RenderFragment? Footer { get; set; }
 
 	public string ModalDisplay = "none;";
 	public string ModalClass = "";
