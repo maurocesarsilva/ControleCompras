@@ -1,53 +1,41 @@
-﻿using ControleCompras.Repository;
+﻿using ControleCompras.Models;
+using ControleCompras.Repository;
+using ControleCompras.Services;
 using ControleCompras.Shared.Componentes;
 using ControleCompras.Util;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace ControleCompras.Pages
 {
 	public class CadastrarListaBehind : ComponentBase
 	{
 		[Inject]
-		private IProductRepository _produtoRepository { get; set; }
+		private IProductService _productService { get; set; }
 
-		protected IEnumerable<Models.Product> ListaProdutos;
-
-		protected Models.Product Produtos;
-
-		protected string Title { get; set; }
 		protected Alert Alert { get; set; }
-		protected Modal Modal { get; set; }
+		protected List<Product> ListProducts { get; set; }
+		protected List<Product> ListProductsTabela { get; set; }
+		protected List<Product> ListProductSelect { get; set; }
+		protected string TextSearch { get; set; }
 
 		protected override async Task OnInitializedAsync()
 		{
-			ListaProdutos = new List<Models.Product>();
-			Produtos = new();
 			if (Alert is not null) Alert.CloseMessage();
-			await Buscar();
+			ListProducts = new List<Product>();
+			ListProductsTabela = new List<Product>();
+			ListProductSelect = new List<Product>();
 		}
-
-		protected async Task Buscar()
-		{
-			ListaProdutos = await _produtoRepository.Get();
-		}
-		protected async Task Salvar(EditContext e)
+		protected override async Task OnAfterRenderAsync(bool firstRender)
 		{
 			try
 			{
-				var produtos = e.Model as Models.Product;
+				if (firstRender is false) return;
 
-				if (string.IsNullOrEmpty(produtos.Id))
-				{
-					await Inserir(produtos);
-				}
-				else
-				{
-					await Editar(produtos);
-				}
-
-				Produtos = new();
-				await Buscar();
+				ListProducts = (await _productService.Get())?.ToList();
+				ListProductsTabela = ListProducts;
+				StateHasChanged();
 			}
 			catch (Exception ex)
 			{
@@ -55,51 +43,35 @@ namespace ControleCompras.Pages
 			}
 		}
 
-		private async Task Inserir(Models.Product produtos)
+		protected void ChackSelectEvent(Product product, ChangeEventArgs args)
 		{
-			await _produtoRepository.Insert(produtos);
-			Alert.ShowSuccessMessage(Messages.Insert);
-		}
-
-		private async Task Editar(Models.Product produtos)
-		{
-			await _produtoRepository.Update(produtos);
-			Alert.ShowSuccessMessage(Messages.Update);
-		}
-
-		protected async Task Excluir(string id)
-		{
-			try
+			if (Convert.ToBoolean(args.Value))
 			{
-				await _produtoRepository.Delete(id);
-				await Buscar();
-				Alert.ShowSuccessMessage(Messages.Delete);
+				ListProductSelect.Add(product);
 			}
-			catch (Exception ex)
+			else
 			{
-				Alert.ShowErrorMessage(ex.Message);
+				ListProductSelect.Remove(product);
 			}
 		}
 
-		protected void PrepararModalParaSalvar()
+		protected void Search()
 		{
-			try
-			{
-				Produtos = new();
-				Title = "Cadastrar Novo Produto";
-				Modal.Open();
-			}
-			catch (Exception ex)
-			{
-				Alert.ShowErrorMessage(ex.Message);
-			}
+			if (TextSearch is null) return;
+
+			ListProductsTabela = ListProducts.Where(s => s.Name.ToUpper().Contains(TextSearch.ToUpper())).ToList();
 		}
 
-		protected void AtualizarObjetoParaEdicao(Models.Product produtos)
+		protected void Analyze()
 		{
-			Produtos = produtos;
-			Title = "Editar Produto";
-			Modal.Open();
+			if (TextSearch is null) return;
+
+			ListProductsTabela = ListProducts.Where(s => s.Name.ToUpper().Contains(TextSearch.ToUpper())).ToList();
+		}
+
+		protected string VerifyCheck(Product product)
+		{
+			return ListProductSelect.Contains(product) ? "checked" : null;
 		}
 	}
 }

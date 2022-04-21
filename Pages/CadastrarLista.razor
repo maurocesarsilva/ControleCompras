@@ -1,6 +1,43 @@
 ﻿@page "/cadastrar-lista"
 @inherits CadastrarListaBehind
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Analisar Lista</PageTitle>
 
 <Alert @ref="Alert"></Alert>
+
+<div class="row">
+	<div class="card">
+		<div class="card-body">
+			<label>Pesquisar</label>
+			<div class="input-group">
+				<input type=text class="form-control" MaxLength="100" @bind="TextSearch" />
+				<button type="button" class="btn btn-primary" @onclick="Search">Pesquisar</button>
+				<button type="button" class="btn btn-success" @onclick="Analyze">Analisar</button>
+			</div>
+			<div class="row margin-top2">
+				<div>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Produto</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var item in ListProductsTabela)
+							{
+								<tr>
+									<td>
+										<Input type="checkbox" @onchange="(e) => ChackSelectEvent(item, e)" checked="@(VerifyCheck(item))" />
+									</td>
+									<td>@item.Name</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
