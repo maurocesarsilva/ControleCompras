@@ -15,5 +15,10 @@ namespace ControleCompras.Repository
 			return await (await MongoCollection.FindAsync(f => f.Description == description)).FirstOrDefaultAsync();
 
 		}
+
+		public async Task<IEnumerable<Nota>> GetByProducts(IEnumerable<string> products)
+		{
+			return (await MongoCollection.AsQueryable().ToListAsync()).Where(w => w.NotaItens.Where(n => products.Contains(n.Product)).Any());
+		}
 	}
 }

@@ -38,5 +38,10 @@ namespace ControleCompras.Services
 		{
 			await _notaRepository.Delete(id);
 		}
+
+		public async Task<IEnumerable<Nota>> GetByProducts(IEnumerable<string> products)
+		{
+			return await _notaRepository.GetByProducts(products);
+		}
 	}
 }

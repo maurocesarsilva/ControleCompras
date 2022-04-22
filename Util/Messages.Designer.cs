@@ -88,6 +88,24 @@ namespace ControleCompras.Util {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Nenhum registro selecionado.
+        /// </summary>
+        public static string NoRecordSelected {
+            get {
+                return ResourceManager.GetString("NoRecordSelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Nenhum {0} encontrado.
+        /// </summary>
+        public static string NotFound {
+            get {
+                return ResourceManager.GetString("NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Nenhum registro incluido.
         /// </summary>
         public static string NotInclude {

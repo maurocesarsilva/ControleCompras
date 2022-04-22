@@ -9,6 +9,7 @@ namespace ControleCompras.Repository
 		public ProductRepository(IConfiguration configuration) : base(configuration)
 		{
 		}
+
 		public async Task<Product> GetByName(string nome)
 		{
 			return await (await MongoCollection.FindAsync(f => f.Name == nome)).FirstOrDefaultAsync();

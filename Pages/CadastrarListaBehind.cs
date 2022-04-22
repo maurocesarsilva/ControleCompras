@@ -14,6 +14,9 @@ namespace ControleCompras.Pages
 		[Inject]
 		private IProductService _productService { get; set; }
 
+		[Inject]
+		private IAnalyzeService _analyzeService { get; set; }
+
 		protected Alert Alert { get; set; }
 		protected List<Product> ListProducts { get; set; }
 		protected List<Product> ListProductsTabela { get; set; }
@@ -62,11 +65,18 @@ namespace ControleCompras.Pages
 			ListProductsTabela = ListProducts.Where(s => s.Name.ToUpper().Contains(TextSearch.ToUpper())).ToList();
 		}
 
-		protected void Analyze()
+		protected async void Analyze()
 		{
-			if (TextSearch is null) return;
+			try
+			{
+				if (ListProductSelect.Any() is false) throw new Exception(Messages.NoRecordSelected);
 
-			ListProductsTabela = ListProducts.Where(s => s.Name.ToUpper().Contains(TextSearch.ToUpper())).ToList();
+				await _analyzeService.Analyze(ListProductSelect);
+			}
+			catch (Exception ex)
+			{
+				Alert.ShowErrorMessage(ex.Message);
+			}
 		}
 
 		protected string VerifyCheck(Product product)

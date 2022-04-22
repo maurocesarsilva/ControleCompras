@@ -126,6 +126,12 @@
   <data name="Insert" xml:space="preserve">
     <value>Inserido com sucesso!</value>
   </data>
+  <data name="NoRecordSelected" xml:space="preserve">
+    <value>Nenhum registro selecionado</value>
+  </data>
+  <data name="NotFound" xml:space="preserve">
+    <value>Nenhum {0} encontrado</value>
+  </data>
   <data name="NotInclude" xml:space="preserve">
     <value>Nenhum registro incluido</value>
   </data>

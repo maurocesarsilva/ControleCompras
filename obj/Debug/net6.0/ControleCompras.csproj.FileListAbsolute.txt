@@ -87,3 +87,4 @@ C:\NamesPacePessoal\controleCompras\ControleCompras\obj\Debug\net6.0\ControleCom
 C:\NamesPacePessoal\controleCompras\ControleCompras\obj\Debug\net6.0\ref\ControleCompras.dll
 C:\NamesPacePessoal\controleCompras\ControleCompras\obj\Debug\net6.0\ControleCompras.pdb
 C:\NamesPacePessoal\controleCompras\ControleCompras\obj\Debug\net6.0\ControleCompras.genruntimeconfig.cache
+C:\NamesPacePessoal\controleCompras\ControleCompras\obj\Debug\net6.0\ControleCompras.csproj.AssemblyReference.cache

@@ -7,6 +7,5 @@ namespace ControleCompras.Repository
 	public interface IProductRepository : IMongoDbConfig<Product>
 	{
 		Task<Product> GetByName(string nome);
-
 	}
 }

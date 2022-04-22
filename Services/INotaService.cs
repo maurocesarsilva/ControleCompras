@@ -7,5 +7,6 @@ namespace ControleCompras.Services
 		Task Insert(Nota nota);
 		Task<IEnumerable<Nota>> Get();
 		Task Delete(string id);
+		Task<IEnumerable<Nota>> GetByProducts(IEnumerable<string> products);
 	}
 }
