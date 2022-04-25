@@ -13,9 +13,9 @@ namespace ControleCompras.Services
 		private INotaService _notaService { get; set; }
 
 
-		public async Task<List<Analyse>> Analyze(List<Product> products)
+		public async Task<List<AnalyseNota>> Analyze(List<Product> products)
 		{
-			var listAnalyses = new List<Analyse>();
+			var listAnalyseNota = new List<AnalyseNota>();
 
 			var productNames = products.Select(n => n.Name);
 
@@ -26,22 +26,10 @@ namespace ControleCompras.Services
 			{
 				var nota = grupotNota.ToList();
 				RemoveNonSelectedProducts(nota, productNames);
-				AddProductsToAnalysisList(nota, listAnalyses, grupotNota);
+				AddProductsToAnalysisList(nota, grupotNota, listAnalyseNota);
 			}
 
-			CheckCheaperProduct(listAnalyses);
-
-			return listAnalyses;
-		}
-
-		private void CheckCheaperProduct(List<Analyse> listAnalyses)
-		{
-			var dicProdMaisBarato = listAnalyses.GroupBy(g => g.Product).ToDictionary(x => x.Key, x => x.ToList().Min(m => m.Value));
-
-			foreach (var item in listAnalyses)
-			{
-				item.Cheaper = dicProdMaisBarato[item.Product] == item.Value;
-			}
+			return listAnalyseNota;
 		}
 
 		private async Task<IEnumerable<Nota>> GetNotes(IEnumerable<string> productNames)
@@ -57,30 +45,30 @@ namespace ControleCompras.Services
 			nota.ForEach(x => x.NotaItens.RemoveAll(r => productNames.Contains(r.Product) is false));
 		}
 
-		private void AddProductsToAnalysisList(List<Nota> nota, List<Analyse> listAnalyses, IGrouping<string, Nota> grupotNota)
+		private void AddProductsToAnalysisList(List<Nota> nota, IGrouping<string, Nota> grupotNota, List<AnalyseNota> listAnalyseNota)
 		{
+			var analyseNota = new AnalyseNota { Supermarket = grupotNota.Key, AnalyseProduct = new List<AnalyseProduct>() };
+
 			foreach (var item in nota.OrderByDescending(o => o.Date))
 			{
 				foreach (var notaItem in item.NotaItens)
 				{
-					var analyse = new Analyse { Supermarket = grupotNota.Key };
-					analyse.Product = notaItem.Product;
-					analyse.Value = notaItem.Valor;
-
-					if (listAnalyses.Any(a => a.Supermarket == grupotNota.Key && a.Product == notaItem.Product) is false)
+					if (listAnalyseNota.Where(w => w.Supermarket == grupotNota.Key).SelectMany(s => s.AnalyseProduct).Any(a => a.Product == notaItem.Product) is false)
 					{
-						listAnalyses.Add(analyse);
+						var analyseProduct = new AnalyseProduct();
+						analyseProduct.Product = notaItem.Product;
+						analyseProduct.Value = notaItem.Valor;
+
+						if (analyseNota.AnalyseProduct.Any(a => a.Product == notaItem.Product) is false)
+						{
+							analyseNota.AnalyseProduct.Add(analyseProduct);
+						}
 					}
 				}
 			}
-		}
-	}
 
-	public class Analyse
-	{
-		public string Product { get; set; }
-		public string Supermarket { get; set; }
-		public decimal Value { get; set; }
-		public bool Cheaper { get; set; }
+			if (analyseNota.AnalyseProduct.Any())
+				listAnalyseNota.Add(analyseNota);
+		}
 	}
 }

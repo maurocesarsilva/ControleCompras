@@ -78,9 +78,9 @@ namespace ControleCompras.Pages
 
 				if (nota is null) throw new Exception(Messages.SaveErro);
 
-				var notaFind = Nota.NotaItens.FirstOrDefault(x => x.Product == nota.Product && x.Valor == nota.Valor);
+				var notaFind = Nota.NotaItens.FirstOrDefault(x => x.Product == nota.Product || x.Valor == nota.Valor);
 
-				if (notaFind is not null) throw new Exception(String.Format(Messages.ExisteRegister, "Nota"));
+				if (notaFind is not null) throw new Exception(String.Format(Messages.ExisteRegister, "Produto"));
 
 				Nota.NotaItens.Add(nota);
 			}

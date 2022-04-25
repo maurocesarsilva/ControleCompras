@@ -4,6 +4,6 @@ namespace ControleCompras.Services
 {
 	public interface IAnalyzeService
 	{
-		Task<List<Analyse>> Analyze(List<Product> products);
+		Task<List<AnalyseNota>> Analyze(List<Product> products);
 	}
 }

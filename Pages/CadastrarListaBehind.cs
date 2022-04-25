@@ -21,7 +21,7 @@ namespace ControleCompras.Pages
 		protected List<Product> ListProducts { get; set; }
 		protected List<Product> ListProductsTabela { get; set; }
 		protected List<Product> ListProductSelect { get; set; }
-		protected List<Analyse> ListAnalyse { get; set; }
+		protected List<AnalyseNota> ListAnalyse { get; set; }
 		protected string TextSearch { get; set; }
 
 		protected override async Task OnInitializedAsync()
@@ -30,7 +30,7 @@ namespace ControleCompras.Pages
 			ListProducts = new List<Product>();
 			ListProductsTabela = new List<Product>();
 			ListProductSelect = new List<Product>();
-			ListAnalyse = new List<Analyse>();
+			ListAnalyse = new List<AnalyseNota>();
 		}
 		protected override async Task OnAfterRenderAsync(bool firstRender)
 		{
@@ -77,7 +77,7 @@ namespace ControleCompras.Pages
 			try
 			{
 				if (ListProductSelect.Any() is false) throw new Exception(Messages.NoRecordSelected);
-				ListAnalyse = (await _analyzeService.Analyze(ListProductSelect)).OrderBy(o => o.Product).ToList();
+				ListAnalyse = await _analyzeService.Analyze(ListProductSelect);
 				StateHasChanged();
 			}
 			catch (Exception ex)
