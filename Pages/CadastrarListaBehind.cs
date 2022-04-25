@@ -21,6 +21,7 @@ namespace ControleCompras.Pages
 		protected List<Product> ListProducts { get; set; }
 		protected List<Product> ListProductsTabela { get; set; }
 		protected List<Product> ListProductSelect { get; set; }
+		protected List<Analyse> ListAnalyse { get; set; }
 		protected string TextSearch { get; set; }
 
 		protected override async Task OnInitializedAsync()
@@ -29,6 +30,7 @@ namespace ControleCompras.Pages
 			ListProducts = new List<Product>();
 			ListProductsTabela = new List<Product>();
 			ListProductSelect = new List<Product>();
+			ListAnalyse = new List<Analyse>();
 		}
 		protected override async Task OnAfterRenderAsync(bool firstRender)
 		{
@@ -36,14 +38,19 @@ namespace ControleCompras.Pages
 			{
 				if (firstRender is false) return;
 
-				ListProducts = (await _productService.Get())?.ToList();
-				ListProductsTabela = ListProducts;
-				StateHasChanged();
+				await LoadInitial();
 			}
 			catch (Exception ex)
 			{
 				Alert.ShowErrorMessage(ex.Message);
 			}
+		}
+
+		private async Task LoadInitial()
+		{
+			ListProducts = (await _productService.Get())?.ToList();
+			ListProductsTabela = ListProducts;
+			StateHasChanged();
 		}
 
 		protected void ChackSelectEvent(Product product, ChangeEventArgs args)
@@ -70,8 +77,8 @@ namespace ControleCompras.Pages
 			try
 			{
 				if (ListProductSelect.Any() is false) throw new Exception(Messages.NoRecordSelected);
-
-				await _analyzeService.Analyze(ListProductSelect);
+				ListAnalyse = (await _analyzeService.Analyze(ListProductSelect)).OrderBy(o => o.Product).ToList();
+				StateHasChanged();
 			}
 			catch (Exception ex)
 			{
@@ -82,6 +89,14 @@ namespace ControleCompras.Pages
 		protected string VerifyCheck(Product product)
 		{
 			return ListProductSelect.Contains(product) ? "checked" : null;
+		}
+
+		protected async Task Clear()
+		{
+			await LoadInitial();
+			ListProductSelect.Clear();
+			ListAnalyse.Clear();
+			TextSearch = String.Empty;
 		}
 	}
 }

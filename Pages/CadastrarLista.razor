@@ -5,39 +5,85 @@
 
 <Alert @ref="Alert"></Alert>
 
-<div class="row">
-	<div class="card">
-		<div class="card-body">
-			<label>Pesquisar</label>
-			<div class="input-group">
-				<input type=text class="form-control" MaxLength="100" @bind="TextSearch" />
-				<button type="button" class="btn btn-primary" @onclick="Search">Pesquisar</button>
-				<button type="button" class="btn btn-success" @onclick="Analyze">Analisar</button>
+@if (ListAnalyse.Any() is false)
+{
+	<div class="row">
+		<div class="card">
+			<div class="card-body">
+				<label>Pesquisar</label>
+				<div class="col-sm-12">
+					<input type=text class="form-control" MaxLength="100" @bind="TextSearch" />
+				</div>
+				<div class="col-12 col-md-12 col-sm-12">
+					<button type="button" class="btn btn-primary btn-sm col-12 col-md-3 col-sm-12" @onclick="Search">Pesquisar</button>
+					<button type="button" class="btn btn-success btn-sm col-12 col-md-3 col-sm-12" @onclick="Analyze">Analisar</button>
+					<button type="button" class="btn btn-danger btn-sm col-12 col-md-3 col-sm-12" @onclick="Clear">Limpar</button>
+				</div>
+				<div class="row margin-top2">
+					<div>
+						<h4>Produtos</h4>
+					</div>
+					<div>
+						<table class="table table-hover table-bordered">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Produto</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in ListProductsTabela)
+								{
+									<tr>
+										<td>
+											<Input type="checkbox" @onchange="(e) => ChackSelectEvent(item, e)" checked="@(VerifyCheck(item))" />
+										</td>
+										<td>@item.Name</td>
+									</tr>
+								}
+							</tbody>
+						</table>
+					</div>
+				</div>
 			</div>
-			<div class="row margin-top2">
+		</div>
+	</div>
+}
+@if (ListAnalyse.Any())
+{
+	<div class="row">
+		<div class="card">
+			<div class="card-body">
+				<div class="input-group">
+					<div class="col-7 col-md-10 col-sm-9">
+						<label>Analise</label>
+					</div>
+					<div class="col-5 col-md-2 col-sm-3">
+						<button type="button" class="btn btn-danger btn-sm col-12 col-md-12 col-sm-12" @onclick="Clear">Voltar</button>
+					</div>
+				</div>
 				<div>
-					<table class="table table-striped">
+					<table class="table table-hover table-bordered">
 						<thead>
 							<tr>
-								<th scope="col">#</th>
 								<th scope="col">Produto</th>
+								<th scope="col">Analise</th>
+								<th scope="col">Valor</th>
 							</tr>
 						</thead>
 						<tbody>
-							@foreach (var item in ListProductsTabela)
+							@foreach (var item in ListAnalyse)
 							{
-								<tr>
-									<td>
-										<Input type="checkbox" @onchange="(e) => ChackSelectEvent(item, e)" checked="@(VerifyCheck(item))" />
-									</td>
-									<td>@item.Name</td>
+								<tr style="@(item.Cheaper ? "background-color:aqua" : "")">
+									<td>@item.Supermarket</td>
+									<td>@item.Product</td>
+									<td>@item.Value</td>
 								</tr>
 							}
 						</tbody>
 					</table>
 				</div>
 			</div>
-
 		</div>
 	</div>
-</div>
+}
