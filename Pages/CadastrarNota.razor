@@ -79,6 +79,9 @@
 				<div class="margin-top2">
 					<button type="button" class="btn btn-primary col-md-12 col-sm-12" data-dismiss="modal" @onclick="PrepareModalToSave">Adicionar Item</button>
 				</div>
+				<div class="margin-top2">
+					<h3>Total: @Nota.NotaItens.Sum(s => s.Valor)</h3>
+				</div>
 			</EditForm>
 		</div>
 		<br />

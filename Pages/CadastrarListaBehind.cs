@@ -23,6 +23,7 @@ namespace ControleCompras.Pages
 		protected List<Product> ListProductSelect { get; set; }
 		protected List<AnalyseNota> ListAnalyse { get; set; }
 		protected string TextSearch { get; set; }
+		protected string BestPurchaseOption { get; set; }
 
 		protected override async Task OnInitializedAsync()
 		{
@@ -78,6 +79,7 @@ namespace ControleCompras.Pages
 			{
 				if (ListProductSelect.Any() is false) throw new Exception(Messages.NoRecordSelected);
 				ListAnalyse = await _analyzeService.Analyze(ListProductSelect);
+				BestPurchaseOption = ListAnalyse.FirstOrDefault(x => x.ValorNota == ListAnalyse.Min(m => m.ValorNota)).Supermarket;
 				StateHasChanged();
 			}
 			catch (Exception ex)
@@ -97,6 +99,7 @@ namespace ControleCompras.Pages
 			ListProductSelect.Clear();
 			ListAnalyse.Clear();
 			TextSearch = String.Empty;
+			BestPurchaseOption = String.Empty;
 		}
 	}
 }

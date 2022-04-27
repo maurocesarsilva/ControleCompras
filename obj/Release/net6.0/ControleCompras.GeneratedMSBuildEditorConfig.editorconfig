@@ -1,0 +1,68 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ControleCompras
+build_property.RootNamespace = ControleCompras
+build_property.ProjectDir = C:\NamesPacePessoal\controleCompras\ControleCompras\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\NamesPacePessoal\controleCompras\ControleCompras
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/NamesPacePessoal/controleCompras/ControleCompras/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/NamesPacePessoal/controleCompras/ControleCompras/Pages/CadastrarLista.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FkYXN0cmFyTGlzdGEucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/NamesPacePessoal/controleCompras/ControleCompras/Pages/CadastrarNota.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FkYXN0cmFyTm90YS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/NamesPacePessoal/controleCompras/ControleCompras/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/NamesPacePessoal/controleCompras/ControleCompras/Pages/Notas.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTm90YXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/NamesPacePessoal/controleCompras/ControleCompras/Pages/Produtos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHV0b3MucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/NamesPacePessoal/controleCompras/ControleCompras/Shared/Componentes/Alert.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudGVzXEFsZXJ0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/NamesPacePessoal/controleCompras/ControleCompras/Shared/Componentes/Modal.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvbXBvbmVudGVzXE1vZGFsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/NamesPacePessoal/controleCompras/ControleCompras/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/NamesPacePessoal/controleCompras/ControleCompras/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-5rtrw8rga7
+
+[C:/NamesPacePessoal/controleCompras/ControleCompras/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-cu5xy7mirz
+
+[C:/NamesPacePessoal/controleCompras/ControleCompras/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/NamesPacePessoal/controleCompras/ControleCompras/Pages/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

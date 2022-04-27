@@ -87,4 +87,13 @@ C:\NamesPacePessoal\controleCompras\ControleCompras\obj\Debug\net6.0\ControleCom
 C:\NamesPacePessoal\controleCompras\ControleCompras\obj\Debug\net6.0\ref\ControleCompras.dll
 C:\NamesPacePessoal\controleCompras\ControleCompras\obj\Debug\net6.0\ControleCompras.pdb
 C:\NamesPacePessoal\controleCompras\ControleCompras\obj\Debug\net6.0\ControleCompras.genruntimeconfig.cache
+C:\NamesPacePessoal\controleCompras\ControleCompras\bin\Debug\net6.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\NamesPacePessoal\controleCompras\ControleCompras\bin\Debug\net6.0\Microsoft.Azure.SignalR.Common.dll
+C:\NamesPacePessoal\controleCompras\ControleCompras\bin\Debug\net6.0\Microsoft.Azure.SignalR.dll
+C:\NamesPacePessoal\controleCompras\ControleCompras\bin\Debug\net6.0\Microsoft.Azure.SignalR.Protocols.dll
+C:\NamesPacePessoal\controleCompras\ControleCompras\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\NamesPacePessoal\controleCompras\ControleCompras\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\NamesPacePessoal\controleCompras\ControleCompras\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\NamesPacePessoal\controleCompras\ControleCompras\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\NamesPacePessoal\controleCompras\ControleCompras\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
 C:\NamesPacePessoal\controleCompras\ControleCompras\obj\Debug\net6.0\ControleCompras.csproj.AssemblyReference.cache
