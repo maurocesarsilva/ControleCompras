@@ -39,10 +39,10 @@
 						<table class="table table-striped">
 							<thead>
 								<tr>
-									<th scope="col">Date</th>
-									<th scope="col">Supermercado</th>
-									<th scope="col">Descrição</th>
-									<th scope="col">Ações</th>
+									<th scope="col" class="width25">Date</th>
+									<th scope="col" class="width25">Supermercado</th>
+									<th scope="col" class="width25">Descrição</th>
+									<th scope="col" class="width25">Ações</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -52,9 +52,9 @@
 										<td>@item.Date</td>
 										<td>@item.Supermarket</td>
 										<td>@item.Description</td>
-										<td class="col-12">
-											<button class="btn alert-danger col-12" @onclick=" () => ConfirmDelete(item)">Excluir</button>
-											<button class="btn alert-primary col-12" @onclick=" () => Show(item)">Editar</button>
+										<td>
+											<button class="btn alert-danger col-12 col-sm-12 col-md-12" @onclick=" () => ConfirmDelete(item)">Excluir</button>
+											<button class="btn alert-primary col-12 col-sm-12 col-md-12" @onclick=" () => Show(item)">Editar</button>
 										</td>
 									</tr>
 								}

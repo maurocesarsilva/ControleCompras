@@ -68,6 +68,18 @@ a, .btn-link {
     overflow:auto;
 }
 
+.width25 {
+    width: 25%;
+}
+
+.width70 {
+    width: 70%;
+}
+
+.width30 {
+    width: 30%;
+}
+
 .margin-top2 {
     margin-top: 2%
 }

@@ -50,18 +50,18 @@
 					<table class="table table-striped">
 						<thead>
 							<tr>
-								<th scope="col">Nome</th>
-								<th scope="col">Ações</th>
+								<th scope="col"  class="width70">Nome</th>
+								<th scope="col" class="width30">Ações</th>
 							</tr>
 						</thead>
 						<tbody>
 							@foreach (var item in ListProducts)
 							{
 								<tr>
-									<td>@item.Name</td>
-									<td class="col-5">
-										<button class="btn alert-danger col-12" @onclick=" () => ConfirmDelete(item)">Excluir</button>
-										<button class="btn alert-success col-12" @onclick="() => UpdateObjectToEdit(item)">Editar</button>
+									<td class="col-7 col-sm-7 col-md-7">@item.Name</td>
+									<td class="col-5 col-sm-5 col-md-5">
+										<button class="btn alert-danger col-12 col-sm-6 col-md-5" @onclick=" () => ConfirmDelete(item)">Excluir</button>
+										<button class="btn alert-success col-12 col-sm-6 col-md-5" @onclick="() => UpdateObjectToEdit(item)">Editar</button>
 									</td>
 								</tr>
 							}
