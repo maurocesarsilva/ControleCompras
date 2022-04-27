@@ -16,7 +16,7 @@ namespace ControleCompras.Services
 
 		public async Task<IEnumerable<Supermarket>> Get()
 		{
-			return await _supermercadoRepository.Get();
+			return (await _supermercadoRepository.Get()).OrderBy(o => o.Name);
 		}
 
 		public async Task<Supermarket> Get(string id)

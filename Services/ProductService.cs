@@ -19,7 +19,7 @@ namespace ControleCompras.Services
 
 		public async Task<IEnumerable<Product>> Get()
 		{
-			return await _productRepository.Get();
+			return (await _productRepository.Get()).OrderBy(o => o.Name);
 		}
 
 		public async Task<Product> Get(string id)
