@@ -29,6 +29,12 @@ namespace ControleCompras.Models
 
 		[Required(ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = ErrorMessageConstant.Required)]
 		[Range(0.01, int.MaxValue, ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = ErrorMessageConstant.ValueInvalid)]
-		public decimal Valor { get; set; }
+		public decimal Quantity { get; set; }
+
+		public decimal Valor { get => ValorUnitario * Quantity; }
+
+		[Required(ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = ErrorMessageConstant.Required)]
+		[Range(0.01, int.MaxValue, ErrorMessageResourceType = typeof(Messages), ErrorMessageResourceName = ErrorMessageConstant.ValueInvalid)]
+		public decimal ValorUnitario { get; set; }
 	}
 }
