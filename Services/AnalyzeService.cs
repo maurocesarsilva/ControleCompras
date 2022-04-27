@@ -57,7 +57,7 @@ namespace ControleCompras.Services
 					{
 						var analyseProduct = new AnalyseProduct();
 						analyseProduct.Product = notaItem.Product;
-						analyseProduct.Value = notaItem.Valor;
+						analyseProduct.Value = notaItem.ValorUnitario;
 
 						if (analyseNota.AnalyseProduct.Any(a => a.Product == notaItem.Product) is false)
 						{
